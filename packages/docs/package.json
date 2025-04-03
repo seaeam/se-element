@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "vitepress dev .Toy_Element",
-    "build": "vitepress build .Toy_Element",
-    "preview": "vitepress preview .Toy_Element"
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
   },
   "keywords": [],
   "author": "",

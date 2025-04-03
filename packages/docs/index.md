@@ -3,8 +3,8 @@
 layout: home
 
 hero:
-  name: "高仿 Element-Plus"
-  text: "A VitePress Site"
+  name: '高仿 Element-Plus'
+  text: 'A VitePress Site'
   tagline: My great project tagline
   actions:
     - theme: brand
@@ -22,4 +22,3 @@ features:
   - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
-
