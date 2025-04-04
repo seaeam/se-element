@@ -4,13 +4,13 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest --coverage"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@vitest/coverage-v8": "^1.4.0",
+    "@vitest/coverage-v8": "^3.1.1",
     "@vue/test-utils": "^2.4.5",
     "jsdom": "^24.0.0"
   },
