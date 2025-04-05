@@ -22,10 +22,9 @@ const iconStyle = computed(() => ({
 }))
 
 const handleBtnClick = (e: MouseEvent) => emits('click', e)
-const handleBtnClickWithThrottle = throttle(
-  handleBtnClick,
-  props.throttleDuration
-)
+const handleBtnClickWithThrottle = throttle(handleBtnClick, props.throttleDuration, {
+  trailing: false,
+})
 
 defineExpose<ButtonInstance>({
   ref: _ref,
@@ -62,12 +61,7 @@ defineExpose<ButtonInstance>({
         />
       </slot>
     </template>
-    <er-icon
-      v-if="icon && !loading"
-      :icon="icon"
-      :style="iconStyle"
-      size="1x"
-    />
+    <er-icon v-if="icon && !loading" :icon="icon" :style="iconStyle" size="1x" />
 
     <slot></slot>
   </component>
