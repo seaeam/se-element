@@ -45,8 +45,7 @@
   --er-border-width: 1px;
   --er-border-style: solid;
   --er-border-color-hover: var(--er-text-color-disabled);
-  --er-border: var(--er-border-width) var(--er-border-style)
-    var(--er-border-color);
+  --er-border: var(--er-border-width) var(--er-border-style) var(--er-border-color);
   --er-border-radius-base: 4px;
   --er-border-radius-small: 2px;
   --er-border-radius-round: 20px;
@@ -59,9 +58,8 @@
   --er-font-size-base: 14px;
   --er-font-size-small: 13px;
   --er-font-size-extra-small: 12px;
-  --er-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC',
-    'Hiragino Sans GB', 'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial,
-    sans-serif;
+  --er-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial, sans-serif;
   --er-font-weight-primary: 500;
 
   /*disabled*/

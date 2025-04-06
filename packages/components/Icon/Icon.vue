@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { omit } from 'lodash-es'
-import type { IconProps } from './types'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { omit } from 'lodash-es'
 import { computed } from 'vue'
+import type { IconProps } from './types'
 
 defineOptions({
   name: 'ErIcon',

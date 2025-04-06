@@ -1,7 +1,9 @@
+// BUG 不晓得为啥子 Story 的类型推断出来是 any,先不管留在这儿
+// @ts-nocheck
 import { clearAllMocks, expect, fn, userEvent, within } from '@storybook/test'
 import type { ArgTypes, Meta, StoryObj } from '@storybook/vue3'
 import { set } from 'lodash-es'
-import { ErButton } from 'toy-element'
+import { ErButton, ErButtonGroup } from 'toy-element'
 
 type Story = StoryObj<typeof ErButton> & { argTypes?: ArgTypes }
 
@@ -73,8 +75,7 @@ export const Default: ButtonStoryType = {
     type: 'primary',
     content: 'Button',
   },
-  // BUG 不晓得为啥子 Story 的类型推断出来是 any,先不管留在这儿
-  // @ts-ignore
+
   render: (args) => ({
     components: { ErButton },
     setup() {
@@ -84,7 +85,6 @@ export const Default: ButtonStoryType = {
       `<er-button data-testid="story-test-btn" v-bind="args">{{args.content}}</er-button>`
     ),
   }),
-  // @ts-ignore
   play: async ({ canvasElement, args, step }) => {
     const canvas = within(canvasElement)
     const btn = canvas.getByTestId('story-test-btn')
@@ -147,7 +147,6 @@ export const Autofocus: ButtonStoryType = {
     content: 'Button',
     autofocus: true,
   },
-  // @ts-ignore
   render: (args) => ({
     components: { ErButton },
     setup() {
@@ -160,7 +159,6 @@ export const Autofocus: ButtonStoryType = {
       `
     ),
   }),
-  // @ts-ignore
   play: async ({ args }) => {
     await userEvent.keyboard('{enter}')
 
@@ -173,6 +171,7 @@ export const Circle: Story = {
   args: {
     icon: 'search',
   },
+  // @ts-ignore
   render: (args) => ({
     components: { ErButton },
     setup() {
@@ -180,6 +179,7 @@ export const Circle: Story = {
     },
     template: container(`<er-button circle v-bind="args" />`),
   }),
+  // @ts-ignore
   play: async ({ canvasElement, args, step }) => {
     const canvas = within(canvasElement)
 
@@ -188,6 +188,59 @@ export const Circle: Story = {
       expect(args.onClick).toHaveBeenCalled()
       clearAllMocks()
     })
+  },
+}
+Circle.parameters = {}
+
+export const Group: Story & { args: { content1: string; content2: string } } = {
+  argTypes: {
+    groupType: {
+      control: { type: 'select' },
+      options: ['primary', 'success', 'warning', 'danger', 'info', ''],
+    },
+    groupSize: {
+      control: { type: 'select' },
+      options: ['large', 'default', 'small', ''],
+    },
+    groupDisabled: {
+      control: 'boolean',
+    },
+    content1: {
+      control: { type: 'text' },
+      defaultValue: 'Button1',
+    },
+    content2: {
+      control: { type: 'text' },
+      defaultValue: 'Button2',
+    },
+  },
+  args: {
+    round: true,
+    content1: 'Button1',
+    content2: 'Button2',
+  },
+  render: (args) => ({
+    components: { ErButton, ErButtonGroup },
+    setup() {
+      return { args }
+    },
+    template: container(`
+       <er-button-group :type="args.groupType" :size="args.groupSize" :disabled="args.groupDisabled">
+         <er-button v-bind="args">{{args.content1}}</er-button>
+         <er-button v-bind="args">{{args.content2}}</er-button>
+       </er-button-group>
+    `),
+  }),
+  play: async ({ canvasElement, args, step }) => {
+    const canvas = within(canvasElement)
+    await step('click btn1', async () => {
+      await userEvent.click(canvas.getByText('Button1'))
+    })
+
+    await step('click btn2', async () => {
+      await userEvent.click(canvas.getByText('Button2'))
+    })
+    expect(args.onClick).toHaveBeenCalled()
   },
 }
 

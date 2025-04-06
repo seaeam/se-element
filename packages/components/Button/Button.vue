@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { throttle } from 'lodash-es'
-import { computed, ref } from 'vue'
+import { computed, inject, ref } from 'vue'
 import ErIcon from '../Icon/Icon.vue'
+import { BUTTON_GROUP_CTX_KEY } from './constants'
 import type { ButtonEmits, ButtonInstance, ButtonProps } from './types'
 
 defineOptions({
@@ -15,11 +16,19 @@ const props = withDefaults(defineProps<ButtonProps>(), {
 })
 
 const emits = defineEmits<ButtonEmits>()
+
 const slots = defineSlots()
-const _ref = ref<HTMLButtonElement>()
+
+const ctx = inject(BUTTON_GROUP_CTX_KEY, void 0)
+const size = computed(() => ctx?.size ?? props?.size ?? '')
+const type = computed(() => ctx?.type ?? props?.type ?? '')
+const disabled = computed(() => ctx?.disabled || props?.disabled || false)
+
 const iconStyle = computed(() => ({
   marginRight: slots.default ? '6px' : '0px',
 }))
+
+const _ref = ref<HTMLButtonElement>()
 
 const handleBtnClick = (e: MouseEvent) => emits('click', e)
 const handleBtnClickWithThrottle = throttle(handleBtnClick, props.throttleDuration, {
@@ -67,6 +76,6 @@ defineExpose<ButtonInstance>({
   </component>
 </template>
 
-<style scoped lang="scss">
-@use './style.scss';
+<style scoped>
+@import './style.css';
 </style>
