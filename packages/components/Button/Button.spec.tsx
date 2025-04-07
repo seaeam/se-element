@@ -86,7 +86,7 @@ describe('Button.vue', () => {
     const wrapper = mount(Button, {
       props: { loading: true },
       global: {
-        stubs: ['ErIcon'],
+        stubs: ['SeIcon'],
       },
     })
     const iconElement = wrapper.findComponent(Icon)
@@ -107,7 +107,7 @@ describe('Button.vue', () => {
         default: 'icon button',
       },
       global: {
-        stubs: ['ErIcon'],
+        stubs: ['SeIcon'],
       },
     })
 
