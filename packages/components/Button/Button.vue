@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { throttle } from 'lodash-es'
 import { computed, inject, ref } from 'vue'
-import ErIcon from '../Icon/Icon.vue'
+import SeIcon from '../Icon/Icon.vue'
 import { BUTTON_GROUP_CTX_KEY } from './constants'
 import type { ButtonEmits, ButtonInstance, ButtonProps } from './types'
 
 defineOptions({
-  name: 'ErButton',
+  name: 'SeButton',
 })
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
@@ -61,7 +61,7 @@ defineExpose<ButtonInstance>({
   >
     <template v-if="loading">
       <slot name="loading">
-        <er-icon
+        <se-icon
           class="loading-icon"
           :icon="loadingIcon ?? 'spinner'"
           :style="iconStyle"
@@ -70,7 +70,7 @@ defineExpose<ButtonInstance>({
         />
       </slot>
     </template>
-    <er-icon v-if="icon && !loading" :icon="icon" :style="iconStyle" size="1x" />
+    <se-icon v-if="icon && !loading" :icon="icon" :style="iconStyle" size="1x" />
 
     <slot></slot>
   </component>

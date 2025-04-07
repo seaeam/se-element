@@ -4,7 +4,7 @@ import { BUTTON_GROUP_CTX_KEY } from './constants'
 import type { ButtonGroupProps } from './types'
 
 defineOptions({
-  name: 'ErButtonGroup',
+  name: 'SeButtonGroup',
 })
 
 const props = defineProps<ButtonGroupProps>()

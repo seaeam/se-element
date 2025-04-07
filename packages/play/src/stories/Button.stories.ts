@@ -3,13 +3,14 @@
 import { clearAllMocks, expect, fn, userEvent, within } from '@storybook/test'
 import type { ArgTypes, Meta, StoryObj } from '@storybook/vue3'
 import { set } from 'lodash-es'
-import { ErButton, ErButtonGroup } from 'toy-element'
+import { SeButton, SeButtonGroup } from 'seam-element'
+import 'seam-element/dist/index.css'
 
-type Story = StoryObj<typeof ErButton> & { argTypes?: ArgTypes }
+type Story = StoryObj<typeof SeButton> & { argTypes?: ArgTypes }
 
-const meta: Meta<typeof ErButton> = {
+const meta: Meta<typeof SeButton> = {
   title: 'Example/Button',
-  component: ErButton,
+  component: SeButton,
   tags: ['autodocs'],
   argTypes: {
     type: {
@@ -77,12 +78,12 @@ export const Default: ButtonStoryType = {
   },
 
   render: (args) => ({
-    components: { ErButton },
+    components: { SeButton },
     setup() {
       return { args }
     },
     template: container(
-      `<er-button data-testid="story-test-btn" v-bind="args">{{args.content}}</er-button>`
+      `<se-button data-testid="story-test-btn" v-bind="args">{{args.content}}</se-button>`
     ),
   }),
   play: async ({ canvasElement, args, step }) => {
@@ -148,14 +149,14 @@ export const Autofocus: ButtonStoryType = {
     autofocus: true,
   },
   render: (args) => ({
-    components: { ErButton },
+    components: { SeButton },
     setup() {
       return { args }
     },
     template: container(
       `
       <p>请点击浏览器的刷新页面来获取按钮聚焦</p>
-      <er-button data-testid="story-test-btn" v-bind="args">{{args.content}}</er-button>
+      <se-button data-testid="story-test-btn" v-bind="args">{{args.content}}</se-button>
       `
     ),
   }),
@@ -173,11 +174,11 @@ export const Circle: Story = {
   },
   // @ts-ignore
   render: (args) => ({
-    components: { ErButton },
+    components: { SeButton },
     setup() {
       return { args }
     },
-    template: container(`<er-button circle v-bind="args" />`),
+    template: container(`<se-button circle v-bind="args" />`),
   }),
   // @ts-ignore
   play: async ({ canvasElement, args, step }) => {
@@ -220,15 +221,15 @@ export const Group: Story & { args: { content1: string; content2: string } } = {
     content2: 'Button2',
   },
   render: (args) => ({
-    components: { ErButton, ErButtonGroup },
+    components: { SeButton, SeButtonGroup },
     setup() {
       return { args }
     },
     template: container(`
-       <er-button-group :type="args.groupType" :size="args.groupSize" :disabled="args.groupDisabled">
-         <er-button v-bind="args">{{args.content1}}</er-button>
-         <er-button v-bind="args">{{args.content2}}</er-button>
-       </er-button-group>
+       <se-button-group :type="args.groupType" :size="args.groupSize" :disabled="args.groupDisabled">
+         <se-button v-bind="args">{{args.content1}}</se-button>
+         <se-button v-bind="args">{{args.content2}}</se-button>
+       </se-button-group>
     `),
   }),
   play: async ({ canvasElement, args, step }) => {
