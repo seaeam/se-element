@@ -1,10 +1,7 @@
-// BUG 不晓得为啥子 Story 的类型推断出来是 any,先不管留在这儿
-// @ts-nocheck
 import { clearAllMocks, expect, fn, userEvent, within } from '@storybook/test'
 import type { ArgTypes, Meta, StoryObj } from '@storybook/vue3'
 import { set } from 'lodash-es'
 import { SeButton, SeButtonGroup } from 'seam-element'
-import 'seam-element/dist/index.css'
 
 type Story = StoryObj<typeof SeButton> & { argTypes?: ArgTypes }
 
