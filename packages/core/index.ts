@@ -7,5 +7,5 @@ import components from './components'
 library.add(fas)
 const installer = makeInstaller(components)
 
-export * from '@seam-element/components'
+export * from '../components'
 export default installer
