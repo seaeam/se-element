@@ -10,8 +10,7 @@
     "docs:build": "pnpm --filter @seam-element/docs build",
     "test": "pnpm --filter @seam-element/components test",
     "build": "pnpm --filter seam-element build",
-    "clean:node_modules": "pnpm recursive exec -- rm -rf node_modules",
-    "publish": "pnpm --filter seam-element publish"
+    "clean:node_modules": "pnpm recursive exec -- rm -rf node_modules"
   },
   "keywords": [],
   "author": "seaming",
