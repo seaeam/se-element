@@ -30,7 +30,8 @@
     "build-es": "vite build --config vite.es.config.ts",
     "move-style": "move-file dist/es/index.css dist/index.css",
     "clean": "rimraf dist",
-    "release": "release-it"
+    "release": "release-it",
+    "publish": "run-s build release"
   },
   "keywords": [],
   "author": "seaming",
