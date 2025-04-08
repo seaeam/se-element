@@ -4,7 +4,7 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'seam-element',
   description: '高仿 Element-Plus 组件库',
-  base: '/seam-element/',
+  base: '/se-element/',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
