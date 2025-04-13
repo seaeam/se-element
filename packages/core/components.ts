@@ -1,9 +1,9 @@
 import {
   SeButton,
   SeButtonGroup,
-  SeIcon,
   SeCollapse,
   SeCollapseItem,
+  SeIcon,
 } from '@seam-element/components'
 import type { Plugin } from 'vue'
 

@@ -8,6 +8,7 @@ import type { ButtonEmits, ButtonInstance, ButtonProps } from './types'
 defineOptions({
   name: 'SeButton',
 })
+
 const props = withDefaults(defineProps<ButtonProps>(), {
   tag: 'button',
   nativeType: 'button',

@@ -162,7 +162,7 @@ describe('Collapse.vue', () => {
       `
       [
         [
-          "accordion mode should only have one active item",
+          [SeUIError: [SeCollapse]:accordion mode should only have one active item],
         ],
       ]
     `

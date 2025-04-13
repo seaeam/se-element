@@ -20,15 +20,21 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    // 指定 TypeScript 要包含的类型定义文件，表示 TypeScript 会加载 Node.js 的类型定义（例如 fs、path 等 Node.js 内置模块的类型）
+    "types": ["node"],
+    "baseUrl": "./",
+    // 配置路径别名，用于模块解析。
+    "paths": {
+      "@seam-element/components": ["./packages/components"]
+    }
   },
   "include": [
+    "env.d.ts",
     "packages/core/index.ts",
     "packages/hooks/**/*.ts",
     "packages/utils/**/*.ts",
-    "packages/components/index.ts",
-    "packages/components/**/*.ts",
-    "packages/components/**/*.vue"
+    "packages/components/**/*.ts"
   ],
   "exclude": ["packages/components/vitest.config.ts"]
 }

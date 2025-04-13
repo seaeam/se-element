@@ -1,19 +1,18 @@
 <script setup lang="ts">
-import { provide, ref, watch } from 'vue'
+import { debugWarn } from '@seam-element/utils'
+import { provide, ref, watch, watchEffect } from 'vue'
 import { COLLAPSE_CTX_KEY } from './constants'
 import type { CollapseEmits, CollapseItemName, CollapseProps } from './types'
 
+const COMP_NAME = 'SeCollapse'
+
 defineOptions({
-  name: 'SeCollapse',
+  name: COMP_NAME,
 })
 
 const props = defineProps<CollapseProps>()
 const emits = defineEmits<CollapseEmits>()
 const activeNames = ref<CollapseItemName[]>(props.modelValue)
-
-if (props.accordion && activeNames.value.length > 1) {
-  console.warn('accordion mode should only have one active item')
-}
 
 function handleItemClick(item: CollapseItemName) {
   let _activeNames = [...activeNames.value]
@@ -43,6 +42,12 @@ watch(
   () => props.modelValue,
   (newNames) => updateActiveNames(newNames)
 )
+
+watchEffect(() => {
+  if (props.accordion && activeNames.value.length > 1) {
+    debugWarn(COMP_NAME, 'accordion mode should only have one active item')
+  }
+})
 
 provide(COLLAPSE_CTX_KEY, {
   activeNames,
