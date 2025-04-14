@@ -4,11 +4,10 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Seam-Element',
-  description: '基于Vue3 高仿 element-ui 组件库',
+  description: '基于 Vue3 高仿 element-ui 组件库',
   appearance: false, // 关闭 darkMode @todo 深色模式完成后打开
-  base: '/seam-element/',
+  base: '/se-element/',
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '开始使用', link: '/get-started' },
       { text: '组件', link: '/components/button' },
