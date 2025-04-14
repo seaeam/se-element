@@ -1,1 +1,0 @@
-import{_ as t,W as s,a as c,b as o,h as n}from"./framework.C3cU7JZf.js";const r={},a={style:{"max-width":"600px"}};function i(_,p){const e=s("se-alert");return o(),c("div",a,[n(e,{title:"With description",type:"success",description:"This is a description."})])}const l=t(r,[["render",i]]);export{l as default};
