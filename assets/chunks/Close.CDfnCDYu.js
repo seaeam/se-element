@@ -1,1 +1,0 @@
-import{W as a,a as l,b as o,h as s}from"./framework.DdCYTCPD.js";const c={class:"basic block"},p={__name:"Close",setup(n){function t(){alert("close callback")}return(r,_)=>{const e=a("se-alert");return o(),l("div",c,[s(e,{title:"Uncrossable alert",type:"success",closable:!1}),s(e,{title:"Alert with callback",type:"warning",onClose:t})])}}};export{p as default};
