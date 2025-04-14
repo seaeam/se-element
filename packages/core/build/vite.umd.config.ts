@@ -46,7 +46,7 @@ export default defineConfig({
   build: {
     outDir: 'dist/umd',
     lib: {
-      entry: resolve(__dirname, './index.ts'),
+      entry: resolve(__dirname, '../index.ts'),
       name: 'SeElement',
       fileName: 'index',
       formats: ['umd'],

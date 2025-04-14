@@ -1,4 +1,5 @@
 import {
+  SeAlert,
   SeButton,
   SeButtonGroup,
   SeCollapse,
@@ -7,4 +8,11 @@ import {
 } from '@seam-element/components'
 import type { Plugin } from 'vue'
 
-export default [SeButton, SeButtonGroup, SeIcon, SeCollapse, SeCollapseItem] as Plugin[]
+export default [
+  SeAlert,
+  SeButton,
+  SeButtonGroup,
+  SeCollapse,
+  SeCollapseItem,
+  SeIcon,
+] as Plugin[]

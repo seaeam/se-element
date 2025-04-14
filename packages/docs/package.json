@@ -1,17 +1,20 @@
 {
   "name": "@seam-element/docs",
   "version": "1.0.0",
+  "type": "module",
   "description": "",
-  "main": "index.ts",
+  "main": "index.md",
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
+    "dev": "vitepress dev ./",
+    "build": "vitepress build ./",
     "preview": "vitepress preview"
   },
   "keywords": [],
-  "author": "",
+  "author": "seaming",
   "license": "ISC",
   "devDependencies": {
+    "@vitepress-demo-preview/component": "^2.3.2",
+    "@vitepress-demo-preview/plugin": "^1.4.0",
     "vitepress": "1.0.0-rc.44"
   }
 }

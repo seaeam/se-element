@@ -1,7 +1,7 @@
 import terser from '@rollup/plugin-terser'
 import vue from '@vitejs/plugin-vue'
-import { readdirSync } from 'fs'
-import { delay, filter, map } from 'lodash-es'
+import { readdir, readdirSync } from 'fs'
+import { defer, delay, filter, map } from 'lodash-es'
 import { resolve } from 'path'
 import shell from 'shelljs'
 import { defineConfig } from 'vite'
@@ -32,12 +32,11 @@ function getDirectoriesSync(basePath: string) {
 
 const TRY_MOVE_FILES_DELAY = 800
 function moveStyles() {
-  try {
-    readdirSync('./dist/es/theme')
-    shell.mv('./dist/es/theme', './dist')
-  } catch (error) {
-    delay(moveStyles, TRY_MOVE_FILES_DELAY)
-  }
+  readdir('./dist/es/theme', (err) => {
+    if (err) return delay(moveStyles, TRY_MOVE_FILES_DELAY)
+
+    defer(() => shell.mv('./dist/es/theme', './dist'))
+  })
 }
 
 export default defineConfig({
@@ -85,7 +84,7 @@ export default defineConfig({
     minify: false,
     cssCodeSplit: true,
     lib: {
-      entry: resolve(__dirname, './index.ts'),
+      entry: resolve(__dirname, '../index.ts'),
       name: 'SeElement',
       fileName: 'index',
       formats: ['es'],

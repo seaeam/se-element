@@ -154,6 +154,12 @@ importers:
 
   packages/docs:
     devDependencies:
+      '@vitepress-demo-preview/component':
+        specifier: ^2.3.2
+        version: 2.3.2(vitepress@1.0.0-rc.44(@algolia/client-search@5.23.3)(@types/node@20.17.30)(@types/react@19.1.0)(async-validator@4.2.5)(postcss@8.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.86.3)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.3))(vue@3.5.13(typescript@5.8.3))
+      '@vitepress-demo-preview/plugin':
+        specifier: ^1.4.0
+        version: 1.4.0(markdown-it-container@3.0.0)(vitepress@1.0.0-rc.44(@algolia/client-search@5.23.3)(@types/node@20.17.30)(@types/react@19.1.0)(async-validator@4.2.5)(postcss@8.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.86.3)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.3))(vue@3.5.13(typescript@5.8.3))
       vitepress:
         specifier: 1.0.0-rc.44
         version: 1.0.0-rc.44(@algolia/client-search@5.23.3)(@types/node@20.17.30)(@types/react@19.1.0)(async-validator@4.2.5)(postcss@8.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.86.3)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.3)
@@ -761,6 +767,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@flypeng/tool@5.7.0':
+    resolution: {integrity: sha512-KVed3iCY9neAqZYdB2LQvo/U0uf3r5/gMI/2vu8DEfROAXsl5RGjFtLqXf67hgjTIlp17r7rmhdZIhq+Q2ZTNw==}
 
   '@fortawesome/fontawesome-common-types@6.7.2':
     resolution: {integrity: sha512-Zs+YeHUC5fkt7Mg1l6XTniei3k4bwG/yo3iFUtZWd/pMx9g3fdvkSK9E0FOC+++phXOka78uJcYb8JaFkW52Xg==}
@@ -1478,6 +1487,19 @@ packages:
       vite: ^5.0.0 || ^6.0.0
       vue: ^3.2.25
 
+  '@vitepress-demo-preview/component@2.3.2':
+    resolution: {integrity: sha512-+GCYl3eHA7uoBGZyH2nTP1uab6pHFGEdykj5bSz4Nt2carH05xomBf18kBecuK1SncSqB7kWV/6JHT2Y349NbQ==}
+    peerDependencies:
+      vitepress: '*'
+      vue: ^3.2.0
+
+  '@vitepress-demo-preview/plugin@1.4.0':
+    resolution: {integrity: sha512-Kp17j2sRTlBfB5MNHmcec35RTzQkp+yVjW6Rjm8Qs0YJw0AJZ9lDVG65zXupWMj7IinF7GjoZUlY0Jx1SDgL5g==}
+    peerDependencies:
+      markdown-it-container: ^3.0.0
+      vitepress: '*'
+      vue: ^3.2.0
+
   '@vitest/browser@3.1.1':
     resolution: {integrity: sha512-A+A69mMtrj1RPh96LfXGc309KSXhy2MslvyL+cp9+Y5EVdoJD4KfXDx/3SSlRGN70+hIoJ3RRbTidTvj18PZ/A==}
     peerDependencies:
@@ -2102,6 +2124,9 @@ packages:
   data-view-byte-offset@1.0.1:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
+
+  dayjs@1.11.13:
+    resolution: {integrity: sha512-oaMBel6gjolK862uaPQOVTA7q3TZhuSvuMQAAglQDOWYO9A91IrAOUJEyKVlqJlHE0vq5p5UXxzdPfMH/x6xNg==}
 
   de-indent@1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==}
@@ -2923,6 +2948,9 @@ packages:
   lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
 
+  linkify-it@5.0.0:
+    resolution: {integrity: sha512-5aHCbzQRADcdP+ATqnDuhhJ/MRIqDkZX5pyjFHRRysS8vZ5AbqGEoFIb6pYHPZ+L/OC2Lc+xT8uHVVR5CAK/wQ==}
+
   load-json-file@4.0.0:
     resolution: {integrity: sha512-Kx8hMakjX03tiGTLAIdJ+lL0htKnXjEZN6hk/tozf/WOuYGdZBJrZ+rCJRbVCugsjB3jMLn9746NsQIf5VjBMw==}
     engines: {node: '>=4'}
@@ -3005,12 +3033,22 @@ packages:
   mark.js@8.11.1:
     resolution: {integrity: sha512-1I+1qpDt4idfgLQG+BNWmrqku+7/2bi5nLf4YwF8y8zXvmfiTBY3PV3ZibfrjBueCByROpuBjLLFCajqkgYoLQ==}
 
+  markdown-it-container@3.0.0:
+    resolution: {integrity: sha512-y6oKTq4BB9OQuY/KLfk/O3ysFhB3IMYoIWhGJEidXt1NQFocFK2sA2t0NYZAMyMShAGL6x5OPIbrmXPIqaN9rw==}
+
+  markdown-it@14.1.0:
+    resolution: {integrity: sha512-a54IwgWPaeBCAAsv13YgmALOF1elABB08FxO9i+r4VFk5Vl4pKokRPeX8u5TCgSsPi6ec1otfLjdOpVcgbpshg==}
+    hasBin: true
+
   math-intrinsics@1.1.0:
     resolution: {integrity: sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g==}
     engines: {node: '>= 0.4'}
 
   mdast-util-to-hast@13.2.0:
     resolution: {integrity: sha512-QGYKEuUsYT9ykKBCMOEDLsU5JRObWQusAolFMeko/tYPufNkRffBAQjIE+99jbA87xv6FgmjLtwjh9wBWajwAA==}
+
+  mdurl@2.0.0:
+    resolution: {integrity: sha512-Lf+9+2r+Tdp5wXDXC4PcIBjTDtq4UKjCPMQhKIuzpJNW0b96kVqSwW0bT7FhRSfmAiFYgP+SCRvdrDozfh0U5w==}
 
   memoizerific@1.11.3:
     resolution: {integrity: sha512-/EuHYwAPdLtXwAwSZkh/Gutery6pD2KYd44oQLhAvQp/50mpyduZh8Q7PYHXTCJ+wuXxt7oij2LXyIJOOYFPog==}
@@ -3465,6 +3503,10 @@ packages:
 
   pump@3.0.2:
     resolution: {integrity: sha512-tUPXtzlGM8FE3P0ZL6DVs/3P58k9nk8/jZeQCurTJylQA8qFYzHFfhBJkuqyE0FifOsQ0uKWekiZ5g8wtr28cw==}
+
+  punycode.js@2.3.1:
+    resolution: {integrity: sha512-uxFIHU0YlHYhDQtV4R9J6a52SLx28BCjT+4ieh7IGbgwVJWO+km431c4yRlREUAsAmt/uMjQUyQHNEPf0M39CA==}
+    engines: {node: '>=6'}
 
   punycode@2.3.1:
     resolution: {integrity: sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg==}
@@ -4180,6 +4222,9 @@ packages:
     resolution: {integrity: sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==}
     engines: {node: '>=14.17'}
     hasBin: true
+
+  uc.micro@2.1.0:
+    resolution: {integrity: sha512-ARDJmphmdvUk6Glw7y9DQ2bFkKBHwQHLi2lsaH6PPmz/Ka9sFOBsBluozhDltWmnv9u/cF6Rt87znRTPV+yp/A==}
 
   unbox-primitive@1.1.0:
     resolution: {integrity: sha512-nWJ91DjeOkej/TA8pXQ3myruKpKEYgqvpw9lz4OPHj/NWFNluYrjbz9j01CJ8yKQd2g4jFoOkINCTW2I5LEEyw==}
@@ -5065,6 +5110,11 @@ snapshots:
   '@esbuild/win32-x64@0.25.2':
     optional: true
 
+  '@flypeng/tool@5.7.0':
+    dependencies:
+      dayjs: 1.11.13
+      lodash: 4.17.21
+
   '@fortawesome/fontawesome-common-types@6.7.2': {}
 
   '@fortawesome/fontawesome-svg-core@6.7.2':
@@ -5843,6 +5893,19 @@ snapshots:
       vite: 5.4.17(@types/node@20.17.30)(sass-embedded@1.86.3)(terser@5.39.0)
       vue: 3.5.13(typescript@5.8.3)
 
+  '@vitepress-demo-preview/component@2.3.2(vitepress@1.0.0-rc.44(@algolia/client-search@5.23.3)(@types/node@20.17.30)(@types/react@19.1.0)(async-validator@4.2.5)(postcss@8.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.86.3)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.3))(vue@3.5.13(typescript@5.8.3))':
+    dependencies:
+      vitepress: 1.0.0-rc.44(@algolia/client-search@5.23.3)(@types/node@20.17.30)(@types/react@19.1.0)(async-validator@4.2.5)(postcss@8.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.86.3)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.3)
+      vue: 3.5.13(typescript@5.8.3)
+
+  '@vitepress-demo-preview/plugin@1.4.0(markdown-it-container@3.0.0)(vitepress@1.0.0-rc.44(@algolia/client-search@5.23.3)(@types/node@20.17.30)(@types/react@19.1.0)(async-validator@4.2.5)(postcss@8.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.86.3)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.3))(vue@3.5.13(typescript@5.8.3))':
+    dependencies:
+      '@flypeng/tool': 5.7.0
+      markdown-it: 14.1.0
+      markdown-it-container: 3.0.0
+      vitepress: 1.0.0-rc.44(@algolia/client-search@5.23.3)(@types/node@20.17.30)(@types/react@19.1.0)(async-validator@4.2.5)(postcss@8.5.3)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(sass-embedded@1.86.3)(search-insights@2.17.3)(terser@5.39.0)(typescript@5.8.3)
+      vue: 3.5.13(typescript@5.8.3)
+
   '@vitest/browser@3.1.1(playwright@1.51.1)(vite@5.4.17(@types/node@20.17.30)(sass-embedded@1.86.3)(terser@5.39.0))(vitest@3.1.1)':
     dependencies:
       '@testing-library/dom': 10.4.0
@@ -6544,6 +6607,8 @@ snapshots:
       call-bound: 1.0.4
       es-errors: 1.3.0
       is-data-view: 1.0.2
+
+  dayjs@1.11.13: {}
 
   de-indent@1.0.2: {}
 
@@ -7471,6 +7536,10 @@ snapshots:
 
   lines-and-columns@1.2.4: {}
 
+  linkify-it@5.0.0:
+    dependencies:
+      uc.micro: 2.1.0
+
   load-json-file@4.0.0:
     dependencies:
       graceful-fs: 4.2.11
@@ -7539,6 +7608,17 @@ snapshots:
 
   mark.js@8.11.1: {}
 
+  markdown-it-container@3.0.0: {}
+
+  markdown-it@14.1.0:
+    dependencies:
+      argparse: 2.0.1
+      entities: 4.5.0
+      linkify-it: 5.0.0
+      mdurl: 2.0.0
+      punycode.js: 2.3.1
+      uc.micro: 2.1.0
+
   math-intrinsics@1.1.0: {}
 
   mdast-util-to-hast@13.2.0:
@@ -7552,6 +7632,8 @@ snapshots:
       unist-util-position: 5.0.0
       unist-util-visit: 5.0.0
       vfile: 6.0.3
+
+  mdurl@2.0.0: {}
 
   memoizerific@1.11.3:
     dependencies:
@@ -8045,6 +8127,8 @@ snapshots:
     dependencies:
       end-of-stream: 1.4.4
       once: 1.4.0
+
+  punycode.js@2.3.1: {}
 
   punycode@2.3.1: {}
 
@@ -8779,6 +8863,8 @@ snapshots:
   typescript@5.4.2: {}
 
   typescript@5.8.3: {}
+
+  uc.micro@2.1.0: {}
 
   unbox-primitive@1.1.0:
     dependencies:
