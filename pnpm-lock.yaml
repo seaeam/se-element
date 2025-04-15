@@ -166,7 +166,7 @@ importers:
 
   packages/hooks: {}
 
-  packages/play:
+  packages/playground:
     devDependencies:
       '@chromatic-com/storybook':
         specifier: ^3
