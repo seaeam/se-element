@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "dev": "pnpm --filter @seam-element/play dev",
-    "story": "pnpm --filter @seam-element/play storybook",
+    "dev": "pnpm --filter @seam-element/playground dev",
+    "story": "pnpm --filter @seam-element/playground storybook",
     "docs:dev": "pnpm --filter @seam-element/docs dev",
     "docs:build": "pnpm --filter @seam-element/docs build",
     "test": "cross-env NODE_ENV=test pnpm --filter @seam-element/components test",
