@@ -6,7 +6,7 @@ import { resolve } from 'path'
 import shell from 'shelljs' // 对文件进行操作
 import { defineConfig } from 'vite'
 import { compression } from 'vite-plugin-compression2' // 对生成文件进行压缩
-import hooks from './hooksPlugin'
+import { buildLifecycleHooks, copyREADME } from './hooksPlugin'
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
@@ -25,6 +25,7 @@ function moveStyles() {
 export default defineConfig({
   plugins: [
     vue(),
+    copyREADME(),
     compression({ include: /.(cjs|css)$/i }),
     terser({
       compress: {
@@ -38,7 +39,7 @@ export default defineConfig({
         },
       },
     }),
-    hooks({
+    buildLifecycleHooks({
       rmFiles: ['./dist/umd', './dist/index.css'],
       afterBuild: moveStyles,
     }),

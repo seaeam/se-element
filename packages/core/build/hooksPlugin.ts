@@ -1,4 +1,5 @@
 import { each, isFunction } from 'lodash-es'
+import { resolve } from 'path'
 import shell from 'shelljs'
 
 /**
@@ -17,7 +18,7 @@ import shell from 'shelljs'
  * @property {Function} buildEnd - 构建结束时调用的钩子函数。
  *   - 如果构建没有错误且提供了 `afterBuild` 回调，则调用该回调。
  */
-export default function hooksPlugin({
+export function buildLifecycleHooks({
   rmFiles = [],
   beforeBuild,
   afterBuild,
@@ -34,6 +35,15 @@ export default function hooksPlugin({
     },
     buildEnd(err?: Error) {
       !err && isFunction(afterBuild) && afterBuild()
+    },
+  }
+}
+
+export function copyREADME() {
+  return {
+    name: 'copy-readme',
+    closeBundle() {
+      shell.cp(resolve(__dirname, '../README.md'), resolve(__dirname, '../dist/'))
     },
   }
 }

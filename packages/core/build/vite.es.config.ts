@@ -6,7 +6,7 @@ import { resolve } from 'path'
 import shell from 'shelljs'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-import hooks from './hooksPlugin'
+import { buildLifecycleHooks, copyREADME } from './hooksPlugin'
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
@@ -42,12 +42,13 @@ function moveStyles() {
 export default defineConfig({
   plugins: [
     vue(),
+    copyREADME(),
     // 声明类型文件
     dts({
       tsconfigPath: '../../tsconfig.build.json',
       outDir: 'dist/types',
     }),
-    hooks({
+    buildLifecycleHooks({
       rmFiles: ['./dist/es', './dist/theme', './dist/types'],
       afterBuild: moveStyles,
     }),
