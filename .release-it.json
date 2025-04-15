@@ -1,0 +1,17 @@
+{
+  "release-it": {
+    "git": {
+      "requireCleanWorkingDir": true,
+      "tagName": "v${version}",
+      "commitMessage": "chore: release v${version}",
+      "tagAnnotation": "Release v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_TOKEN"
+    },
+    "npm": {
+      "publish": true
+    }
+  }
+}
