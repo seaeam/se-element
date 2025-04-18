@@ -22,11 +22,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "env.d.ts",
-    "packages/**/*.ts",
-    "packages/**/*.tsx",
-    "packages/**/*.vue",
-    "vitest.config.ts"
-  ]
+  "include": ["env.d.ts", "packages/**/*.ts", "packages/**/*.tsx", "packages/**/*.vue"]
 }
