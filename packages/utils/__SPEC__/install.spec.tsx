@@ -45,7 +45,7 @@ describe('utils/install', () => {
     app.use(installer).mount(wrapper.element)
 
     expect(installer).toBeDefined()
-    expect(wrapper.findComponent(compA)).toBeTruthy()
-    expect(wrapper.findAllComponents(compB)).toBeTruthy()
+    expect(app._context.components['compA']).toBeTruthy()
+    expect(app._context.components['compB']).toBeTruthy()
   })
 })
