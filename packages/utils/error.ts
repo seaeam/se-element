@@ -7,10 +7,6 @@ class SeUIError extends Error {
   }
 }
 
-function createError(scope: string, msg: string) {
-  return new SeUIError(`[${scope}]:${msg}`)
-}
-
 export function throwError(scope: string, msg: string) {
   throw new SeUIError(`[${scope}]:${msg}`)
 }
@@ -19,7 +15,7 @@ export function debugWarn(error: Error): void
 export function debugWarn(scope: string, msg: string): void
 export function debugWarn(scope: string | Error, msg?: string) {
   if (process.env.NODE_ENV !== 'production') {
-    const error = isString(scope) && isString(msg) ? createError(scope, msg) : scope
+    const error = isString(scope) ? new SeUIError(`[${scope}]:${msg}`) : scope
     console.warn(error)
   }
 }

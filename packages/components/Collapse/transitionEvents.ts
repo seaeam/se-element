@@ -12,7 +12,7 @@ type VueTransitionNames =
   | 'leave'
   | 'afterLeave'
 
-const transitionEvents: Record<VueTransitionNames, (el: HTMLElement) => void> = {
+const transitionEvents: Partial<Record<VueTransitionNames, (el: HTMLElement) => void>> = {
   beforeEnter(el) {
     _setHeightZero(el)
     _setOverflowHidden(el)
