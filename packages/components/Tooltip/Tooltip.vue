@@ -8,7 +8,7 @@ import type { TooltipEmits, TooltipInstance, TooltipProps } from './types'
 import useEventsToTriggerNode from './useEventsToTriggerNode'
 
 defineOptions({
-  name: 'ErTooltip',
+  name: 'SeTooltip',
 })
 
 interface _TooltipProps extends TooltipProps {
