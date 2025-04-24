@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "vitest --coverage"
+    "test": "vitest --run --coverage",
+    "test:watch": "vitest --coverage"
   },
   "keywords": [],
   "author": "",

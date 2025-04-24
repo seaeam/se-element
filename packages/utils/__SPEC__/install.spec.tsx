@@ -13,6 +13,7 @@ const compA = withInstall(
     setup() {
       return () => <div>CompA</div>
     },
+    name: 'compA',
   })
 )
 
@@ -21,31 +22,32 @@ const compB = withInstall(
     setup() {
       return () => <div>CompB</div>
     },
+    name: 'compB',
   })
 )
 
 describe('utils/install', () => {
   it('withInstall should work', () => {
-    const wrapper = mount(() => <div id="app"></div>)
+    const wrapper = mount(() => <div id='app'></div>)
     const app = createApp(AppComp)
 
-    app.use(compA).use(compB).mount(wrapper.element)
+    app.use(compA).mount(wrapper.element)
 
     expect(compA.install).toBeDefined()
     expect(compB.install).toBeDefined()
-    expect(wrapper.findComponent(compA)).toBeTruthy()
-    expect(wrapper.findAllComponents(compB)).toBeTruthy()
+    expect(app._context.components['compA']).toBeTruthy()
+    expect(app._context.components['compB']).toBeFalsy()
   })
 
   it('makeInstall should work', () => {
-    const wrapper = mount(() => <div id="app"></div>)
+    const wrapper = mount(() => <div id='app'></div>)
     const app = createApp(AppComp)
     const installer = makeInstaller([compA, compB])
 
     app.use(installer).mount(wrapper.element)
 
     expect(installer).toBeDefined()
-    expect(wrapper.findComponent(compA)).toBeTruthy()
-    expect(wrapper.findAllComponents(compB)).toBeTruthy()
+    expect(app._context.components['compA']).toBeTruthy()
+    expect(app._context.components['compB']).toBeTruthy()
   })
 })

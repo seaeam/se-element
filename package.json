@@ -8,7 +8,7 @@
     "story": "pnpm --filter @seam-element/playground storybook",
     "docs:dev": "pnpm --filter @seam-element/docs dev",
     "docs:build": "pnpm --filter @seam-element/docs build",
-    "test": "run-p test-utils test-comp",
+    "test": "run-s test-utils test-comp",
     "test-comp": "cross-env NODE_ENV=test pnpm --filter @seam-element/components test",
     "test-utils": "cross-env NODE_ENV=test pnpm --filter @seam-element/utils test",
     "build": "cross-env NODE_ENV=production pnpm --filter seam-element build",
