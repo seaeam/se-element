@@ -5,6 +5,7 @@ import {
   SeCollapse,
   SeCollapseItem,
   SeIcon,
+  SeToolTip,
 } from '@seam-element/components'
 import type { Plugin } from 'vue'
 
@@ -15,4 +16,5 @@ export default [
   SeCollapse,
   SeCollapseItem,
   SeIcon,
+  SeToolTip,
 ] as Plugin[]

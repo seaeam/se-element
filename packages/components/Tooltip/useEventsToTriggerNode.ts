@@ -3,6 +3,19 @@ import type { ComputedRef, Ref, WatchStopHandle } from 'vue'
 import { onMounted, onUnmounted, watch } from 'vue'
 import type { TooltipProps } from './types'
 
+/**
+ * 用于在虚拟触发节点（virtualTriggering）上绑定和解绑事件的 Hook。
+ *
+ * @param props - Tooltip 组件的属性，包含是否启用虚拟触发（virtualTriggering）。
+ * @param triggerNode - 当前触发节点的响应式引用。
+ * @param events - 需要绑定到触发节点的事件及其处理函数的响应式对象。
+ * @param closeMethod - 关闭 Tooltip 的回调方法。
+ *
+ * @remarks
+ * - 当 `virtualTriggering` 为 true 时，会自动为 triggerNode 绑定/解绑事件。
+ * - 监听 triggerNode 和 events 的变化，动态更新事件绑定。
+ * - 组件卸载时自动清理事件和监听器。
+ */
 export function useEventsToTriggerNode(
   props: TooltipProps & { virtualTriggering?: boolean },
   triggerNode: ComputedRef<HTMLElement | undefined>,
