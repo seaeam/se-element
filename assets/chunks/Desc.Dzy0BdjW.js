@@ -1,0 +1,1 @@
+import{_ as t,X as s,a as c,b as o,h as n}from"./framework.KdsPquwm.js";const r={},a={style:{"max-width":"600px"}};function i(_,p){const e=s("se-alert");return o(),c("div",a,[n(e,{title:"With description",type:"success",description:"This is a description."})])}const l=t(r,[["render",i]]);export{l as default};
