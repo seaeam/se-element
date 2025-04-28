@@ -14,7 +14,8 @@
     "build-hooks": "cross-env NODE_ENV=production pnpm --filter @seam-element/hooks build",
     "build:dev": "run-s build-hooks:dev build-components:dev",
     "build-components:dev": "cross-env NODE_ENV=development pnpm --filter seam-element build:watch",
-    "build-hooks:dev": "cross-env NODE_ENV=development pnpm --filter @seam-element/hooks build"
+    "build-hooks:dev": "cross-env NODE_ENV=development pnpm --filter @seam-element/hooks build",
+    "publish": "pnpm --filter seam-element release"
   },
   "keywords": [],
   "author": "seaming",
