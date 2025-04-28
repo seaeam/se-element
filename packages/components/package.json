@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "test": "vitest --run --coverage",
-    "test:watch": "vitest --coverage"
+    "test": "cross-env NODE_ENV=test pnpm --filter @seam-element/hooks build && vitest --run --coverage",
+    "test:watch": "cross-env NODE_ENV=test pnpm --filter @seam-element/hooks build vitest --coverage"
   },
   "keywords": [],
   "author": "",

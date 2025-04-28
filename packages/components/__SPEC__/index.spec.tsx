@@ -8,6 +8,7 @@ import {
   SeCollapse,
   SeCollapseItem,
   SeIcon,
+  SeToolTip,
 } from '../index'
 
 const comps = [
@@ -17,6 +18,7 @@ const comps = [
   SeCollapse,
   SeCollapseItem,
   SeIcon,
+  SeToolTip,
 ] as Plugin[]
 
 describe('components/index', () => {

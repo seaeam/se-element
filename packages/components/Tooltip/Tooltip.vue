@@ -59,7 +59,6 @@ const popperOptions = computed(() => ({
 }))
 
 const openDelay = computed(() => (props.trigger === 'hover' ? props.showTimeout : 0))
-
 const closeDelay = computed(() => (props.trigger === 'hover' ? props.hideTimeout : 0))
 
 const triggerStrategyMap: Map<string, () => void> = new Map()
@@ -125,7 +124,6 @@ if (!props.manual) {
 }
 
 const show: TooltipInstance['show'] = openFinal
-
 const hide: TooltipInstance['hide'] = function () {
   openDebounce?.cancel()
   setVisible(false)

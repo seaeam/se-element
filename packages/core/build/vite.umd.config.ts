@@ -1,32 +1,36 @@
 import terser from '@rollup/plugin-terser'
+import { hooksPlugin as hooks } from '@seam-element/vite-plugins'
 import vue from '@vitejs/plugin-vue'
-import { readFileSync } from 'fs'
-import { delay } from 'lodash-es'
+import { readFile } from 'fs'
+import { defer, delay } from 'lodash-es'
 import { resolve } from 'path'
-import shell from 'shelljs' // 对文件进行操作
+import { visualizer } from 'rollup-plugin-visualizer'
+import shell from 'shelljs'
 import { defineConfig } from 'vite'
-import { compression } from 'vite-plugin-compression2' // 对生成文件进行压缩
-import { buildLifecycleHooks, copyREADME } from './hooksPlugin'
+import compression from 'vite-plugin-compression2'
+
+const TRY_MOVE_STYLES_DELAY = 750 as const
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
 const isTest = process.env.NODE_ENV === 'test'
 
-const TRY_MOVE_FILES_DELAY = 800
 function moveStyles() {
-  try {
-    readFileSync('./dist/umd/index.css.gz')
-    shell.cp('./dist/umd/index.css', './dist/index.css')
-  } catch (error) {
-    delay(moveStyles, TRY_MOVE_FILES_DELAY)
-  }
+  readFile('./dist/umd/index.css.gz', (err) => {
+    if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY)
+    defer(() => shell.cp('./dist/umd/index.css', './dist/index.css'))
+  })
 }
 
 export default defineConfig({
   plugins: [
     vue(),
-    copyREADME(),
-    compression({ include: /.(cjs|css)$/i }),
+    compression({
+      include: /.(cjs|css)$/i,
+    }),
+    visualizer({
+      filename: 'dist/stats.umd.html',
+    }),
     terser({
       compress: {
         drop_console: ['log'],
@@ -39,8 +43,8 @@ export default defineConfig({
         },
       },
     }),
-    buildLifecycleHooks({
-      rmFiles: ['./dist/umd', './dist/index.css'],
+    hooks({
+      rmFiles: ['./dist/umd', './dist/index.css', './dist/stats.umd.html'],
       afterBuild: moveStyles,
     }),
   ],
@@ -48,7 +52,7 @@ export default defineConfig({
     outDir: 'dist/umd',
     lib: {
       entry: resolve(__dirname, '../index.ts'),
-      name: 'SeElement',
+      name: 'EricUI',
       fileName: 'index',
       formats: ['umd'],
     },
@@ -59,9 +63,11 @@ export default defineConfig({
         globals: {
           vue: 'Vue',
         },
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'index.css'
-          return assetInfo.name as string
+        assetFileNames: (chunkInfo) => {
+          if (chunkInfo.name === 'style.css') {
+            return 'index.css'
+          }
+          return chunkInfo.name as string
         },
       },
     },

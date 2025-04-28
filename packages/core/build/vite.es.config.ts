@@ -1,26 +1,20 @@
 import terser from '@rollup/plugin-terser'
+import { hooksPlugin as hooks } from '@seam-element/vite-plugins'
 import vue from '@vitejs/plugin-vue'
 import { readdir, readdirSync } from 'fs'
-import { defer, delay, filter, map } from 'lodash-es'
+import { defer, delay, filter, includes, map } from 'lodash-es'
 import { resolve } from 'path'
+import { visualizer } from 'rollup-plugin-visualizer'
 import shell from 'shelljs'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-import { buildLifecycleHooks, copyREADME } from './hooksPlugin'
+
+const TRY_MOVE_STYLES_DELAY = 750 as const
 
 const isProd = process.env.NODE_ENV === 'production'
 const isDev = process.env.NODE_ENV === 'development'
 const isTest = process.env.NODE_ENV === 'test'
 
-/**
- * 获取指定路径下的所有目录名称。
- *
- * @param basePath - 基础路径，表示要读取目录的路径。
- * @returns 一个包含所有目录名称的字符串数组。
- *
- * 此函数会同步读取指定路径下的所有文件和目录，并筛选出其中的目录名称。
- * 使用时请确保提供的路径是有效的，并且具有读取权限。
- */
 function getDirectoriesSync(basePath: string) {
   const entries = readdirSync(basePath, { withFileTypes: true })
 
@@ -30,11 +24,9 @@ function getDirectoriesSync(basePath: string) {
   )
 }
 
-const TRY_MOVE_FILES_DELAY = 800
 function moveStyles() {
   readdir('./dist/es/theme', (err) => {
-    if (err) return delay(moveStyles, TRY_MOVE_FILES_DELAY)
-
+    if (err) return delay(moveStyles, TRY_MOVE_STYLES_DELAY)
     defer(() => shell.mv('./dist/es/theme', './dist'))
   })
 }
@@ -42,15 +34,12 @@ function moveStyles() {
 export default defineConfig({
   plugins: [
     vue(),
-    copyREADME(),
-    // 声明类型文件
+    visualizer({
+      filename: 'dist/stats.es.html',
+    }),
     dts({
       tsconfigPath: '../../tsconfig.build.json',
       outDir: 'dist/types',
-    }),
-    buildLifecycleHooks({
-      rmFiles: ['./dist/es', './dist/theme', './dist/types'],
-      afterBuild: moveStyles,
     }),
     terser({
       compress: {
@@ -79,14 +68,19 @@ export default defineConfig({
         keep_fnames: isDev,
       },
     }),
+    hooks({
+      rmFiles: ['./dist/es', './dist/theme', './dist/types', './dist/stats.es.html'],
+      afterBuild: moveStyles,
+    }),
   ],
   build: {
     outDir: 'dist/es',
     minify: false,
     cssCodeSplit: true,
+    sourcemap: !isProd,
     lib: {
       entry: resolve(__dirname, '../index.ts'),
-      name: 'SeElement',
+      name: 'EricUI',
       fileName: 'index',
       formats: ['es'],
     },
@@ -100,30 +94,25 @@ export default defineConfig({
         'async-validator',
       ],
       output: {
-        assetFileNames: (assetInfo) => {
-          if (assetInfo.name === 'style.css') return 'index.css'
-
-          if (assetInfo.type === 'asset' && /\.(css)$/i.test(assetInfo.name as string)) {
-            // 这里不使用 hash， 当用户需要按需引入的时候如果有 hash 值的话就会很麻烦
+        assetFileNames: (chunkInfo) => {
+          if (chunkInfo.name === 'style.css') {
+            return 'index.css'
+          }
+          if (chunkInfo.type === 'asset' && /\.(css)$/i.test(chunkInfo.name as string)) {
             return 'theme/[name].[ext]'
           }
-          return assetInfo.name as string
+          return chunkInfo.name as string
         },
         manualChunks(id) {
-          if (id.includes('node_modules')) {
-            return 'vendor'
-          }
-          if (id.includes('/packages/hooks')) {
-            return 'hooks'
-          }
-          if (id.includes('/packages/utils') || id.includes('plugin-vue:export-helper')) {
-            return 'utils'
-          }
+          if (includes(id, 'node_modules')) return 'vendor'
 
-          for (const dirName of getDirectoriesSync('../components')) {
-            if (id.includes(`/packages/components/${dirName}`)) {
-              return dirName
-            }
+          if (includes(id, '/packages/hooks')) return 'hooks'
+
+          if (includes(id, '/packages/utils') || includes(id, 'plugin-vue:export-helper'))
+            return 'utils'
+
+          for (const item of getDirectoriesSync('../components')) {
+            if (includes(id, `/packages/components/${item}`)) return item
           }
         },
       },
