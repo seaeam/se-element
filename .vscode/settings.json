@@ -6,5 +6,6 @@
     "popperjs",
     "subcomponents",
     "xmark"
-  ]
+  ],
+  "vitest.disableWorkspaceWarning": true
 }
