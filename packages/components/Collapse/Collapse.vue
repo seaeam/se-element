@@ -56,7 +56,7 @@ provide(COLLAPSE_CTX_KEY, {
 </script>
 
 <template>
-  <div class="er-collapse">
+  <div class="se-collapse">
     <slot></slot>
   </div>
 </template>

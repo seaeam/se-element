@@ -204,9 +204,9 @@ defineExpose<TooltipInstance>({
 </script>
 
 <template>
-  <div class="er-tooltip" ref="containerNode" v-on="outerEvents">
+  <div class="se-tooltip" ref="containerNode" v-on="outerEvents">
     <div
-      class="er-tooltip__trigger"
+      class="se-tooltip__trigger"
       ref="_triggerNode"
       v-on="events"
       v-if="!virtualTriggering"
@@ -215,9 +215,9 @@ defineExpose<TooltipInstance>({
     </div>
     <slot name="default" v-else></slot>
 
-    <transition :name="transition" @after-leave="destroyPopperInstance">
+    <transition :name="transition" @aftse-leave="destroyPopperInstance">
       <div
-        class="er-tooltip__popper"
+        class="se-tooltip__popper"
         ref="popperNode"
         v-on="dropdownEvents"
         v-if="visible"
@@ -225,7 +225,7 @@ defineExpose<TooltipInstance>({
         <slot name="content">
           {{ content }}
         </slot>
-        <div id="arrow" data-popper-arrow></div>
+        <div id="arrow" data-poppse-arrow></div>
       </div>
     </transition>
   </div>

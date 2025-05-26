@@ -16,8 +16,8 @@ const customStyle = computed(() => ({ color: props.color ?? void 0 }))
 
 <template>
   <i
-    class="er-icon"
-    :class="[`er-icon-${props.type}`]"
+    class="se-icon"
+    :class="[`se-icon-${props.type}`]"
     :style="customStyle"
     v-bind="$attrs"
   >

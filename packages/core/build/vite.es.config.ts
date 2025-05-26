@@ -80,7 +80,7 @@ export default defineConfig({
     sourcemap: !isProd,
     lib: {
       entry: resolve(__dirname, '../index.ts'),
-      name: 'EricUI',
+      name: 'SeamUI',
       fileName: 'index',
       formats: ['es'],
     },

@@ -40,7 +40,7 @@ export default defineConfig({
           // { text: 'MessageBox 消息弹出框', link: 'components/messagebox' },
           // { text: 'Notification 通知', link: 'components/notification' },
           // { text: 'Popconfirm 气泡确认框', link: 'components/popconfirm' },
-          // { text: 'Tooltip 文字提示', link: 'components/tooltip' },
+          { text: 'Tooltip 文字提示', link: 'components/tooltip' },
         ],
       },
       // {

@@ -22,30 +22,30 @@ function handleClick() {
 
 <template>
   <div
-    class="er-collapse-item"
+    class="se-collapse-item"
     :class="{
       'is-disabled': disabled,
     }"
   >
     <div
-      class="er-collapse-item__header"
-      :id="`item-header-${name}`"
+      class="se-collapse-item__header"
+      :id="`item-headse-${name}`"
       :class="{
         'is-disabled': disabled,
         'is-active': isActive,
       }"
       @click="handleClick"
     >
-      <span class="er-collapse-item__title">
+      <span class="se-collapse-item__title">
         <slot name="title">
           {{ title }}
         </slot>
       </span>
-      <se-icon icon="angle-right" class="header-angle" />
+      <se-icon icon="angle-right" class="headse-angle" />
     </div>
     <transition name="slide" v-on="transitionEvents">
-      <div class="er-collapse-item__wrapper" v-show="isActive">
-        <div class="er-collapse-item__content" :id="`item-content-${name}`">
+      <div class="se-collapse-item__wrapper" v-show="isActive">
+        <div class="se-collapse-item__content" :id="`item-content-${name}`">
           <slot></slot>
         </div>
       </div>

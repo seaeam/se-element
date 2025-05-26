@@ -38,35 +38,35 @@ defineExpose<AlertInstance>({
 </script>
 
 <template>
-  <transition name="er-alert-fade">
+  <transition name="se-alert-fade">
     <div
       v-show="visible"
-      class="er-alert"
+      class="se-alert"
       role="alert"
       :class="{
-        [`er-alert__${type}`]: type,
-        [`er-alert__${effect}`]: effect,
+        [`se-alert__${type}`]: type,
+        [`se-alert__${effect}`]: effect,
         'text-center': center,
       }"
     >
       <se-icon
         v-if="showIcon"
-        class="er-alert__icon"
+        class="se-alert__icon"
         :class="{ 'big-icon': withDescription }"
         :icon="iconName"
       />
-      <div class="er-alert__content">
+      <div class="se-alert__content">
         <span
-          class="er-alert__title"
+          class="se-alert__title"
           :class="{ 'with-desc': withDescription }"
           :style="{ display: center && !showIcon ? 'flow' : 'inline' }"
         >
           <slot name="title">{{ title }}</slot>
         </span>
-        <p class="er-alert__description">
+        <p class="se-alert__description">
           <slot>{{ description }}</slot>
         </p>
-        <div class="er-alert__close" v-if="closable">
+        <div class="se-alert__close" v-if="closable">
           <se-icon @click.stop="close" icon="xmark" />
         </div>
       </div>

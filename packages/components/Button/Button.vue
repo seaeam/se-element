@@ -49,12 +49,12 @@ defineExpose<ButtonInstance>({
     :is="tag"
     :autofocus="autofocus"
     :ref="_ref"
-    class="er-button"
+    class="se-button"
     :type="tag === 'button' ? nativeType : void 0"
     :disabled="disabled || loading ? true : void 0"
     :class="{
-      [`er-button--${type}`]: type,
-      [`er-button--${size}`]: size,
+      [`se-button--${type}`]: type,
+      [`se-button--${size}`]: size,
       'is-plain': plain,
       'is-round': round,
       'is-circle': circle,

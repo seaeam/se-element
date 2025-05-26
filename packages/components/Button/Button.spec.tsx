@@ -12,7 +12,7 @@ describe('Button.vue', () => {
       const wrapper = mount(Button, {
         props: { type: type as any },
       })
-      expect(wrapper.classes()).toContain(`er-button--${type}`)
+      expect(wrapper.classes()).toContain(`se-button--${type}`)
     })
   })
 
@@ -23,7 +23,7 @@ describe('Button.vue', () => {
       const wrapper = mount(Button, {
         props: { size: size as any },
       })
-      expect(wrapper.classes()).toContain(`er-button--${size}`)
+      expect(wrapper.classes()).toContain(`se-button--${size}`)
     })
   })
 
@@ -126,7 +126,7 @@ describe('ButtonGroup.vue', () => {
       </ButtonGroup>
     ))
 
-    expect(wrapper.classes()).toContain('er-button-group')
+    expect(wrapper.classes()).toContain('se-button-group')
   })
 
   test('button group size', () => {
@@ -140,7 +140,7 @@ describe('ButtonGroup.vue', () => {
       ))
 
       const buttonWrapper = wrapper.findComponent(Button)
-      expect(buttonWrapper.classes()).toContain(`er-button--${size}`)
+      expect(buttonWrapper.classes()).toContain(`se-button--${size}`)
     })
   })
 
@@ -155,7 +155,7 @@ describe('ButtonGroup.vue', () => {
       ))
 
       const buttonWrapper = wrapper.findComponent(Button)
-      expect(buttonWrapper.classes()).toContain(`er-button--${type}`)
+      expect(buttonWrapper.classes()).toContain(`se-button--${type}`)
     })
   })
 

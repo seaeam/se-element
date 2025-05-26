@@ -39,8 +39,8 @@ describe('Collapse.vue', () => {
       }
     )
 
-    headers = wrapper.findAll('.er-collapse-item__header')
-    contents = wrapper.findAll('.er-collapse-item__wrapper')
+    headers = wrapper.findAll('.se-collapse-item__header')
+    contents = wrapper.findAll('.se-collapse-item__wrapper')
 
     firstHeader = headers[0]
     secondHeader = headers[1]
@@ -121,8 +121,8 @@ describe('Collapse.vue', () => {
       }
     )
 
-    headers = wrapper.findAll('.er-collapse-item__header')
-    contents = wrapper.findAll('.er-collapse-item__wrapper')
+    headers = wrapper.findAll('.se-collapse-item__header')
+    contents = wrapper.findAll('.se-collapse-item__wrapper')
 
     firstHeader = headers[0]
     secondHeader = headers[1]
