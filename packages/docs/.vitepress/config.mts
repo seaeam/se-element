@@ -36,7 +36,7 @@ export default defineConfig({
         items: [
           { text: 'Alert 提示', link: 'components/alert' },
           // { text: 'Loading 加载', link: 'components/loading' },
-          // { text: 'Message 消息提示', link: 'components/message' },
+          { text: 'Message 消息提示', link: 'components/message' },
           // { text: 'MessageBox 消息弹出框', link: 'components/messagebox' },
           // { text: 'Notification 通知', link: 'components/notification' },
           // { text: 'Popconfirm 气泡确认框', link: 'components/popconfirm' },
