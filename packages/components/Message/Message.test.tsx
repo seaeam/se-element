@@ -24,27 +24,27 @@ describe('createMessage', () => {
   test('调用方法应该创建对应的 Message 组件', async () => {
     const handler = message({ message: 'hello msg', duration: 0 })
     await rAF()
-    expect(document.querySelector('.er-message')).toBeTruthy()
+    expect(document.querySelector('.se-message')).toBeTruthy()
     handler.close()
     await rAF()
-    expect(document.querySelector('.er-message')).toBeFalsy()
+    expect(document.querySelector('.se-message')).toBeFalsy()
   })
 
   test('多次调用应该创建多个实例', async () => {
     message({ message: 'hello msg', duration: 0 })
     message({ message: 'hello msg2', duration: 0 })
     await rAF()
-    expect(document.querySelectorAll('.er-message').length).toBe(2)
+    expect(document.querySelectorAll('.se-message').length).toBe(2)
     closeAll()
     await rAF()
-    expect(document.querySelectorAll('.er-message').length).toBe(0)
+    expect(document.querySelectorAll('.se-message').length).toBe(0)
   })
 
   test('创建多个实例应该设置正确的 offset', async () => {
     message({ message: 'hello msg', duration: 0, offset: 100 })
     message({ message: 'hello msg2', duration: 0, offset: 50 })
     await rAF()
-    const elements = document.querySelectorAll('.er-message')
+    const elements = document.querySelectorAll('.se-message')
     expect(elements.length).toBe(2)
     // https://github.com/jsdom/jsdom/issues/1590
     // jsdom 中获取height的数值都为 0
