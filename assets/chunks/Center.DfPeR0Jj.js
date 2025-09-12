@@ -1,0 +1,1 @@
+import{V as n}from"./theme.BZH3l5e7.js";import{d as r,$ as s,g as a,b as p,j as c,y as m}from"./framework.C6j4yGib.js";const d=r({__name:"Center",setup(_){const t=()=>{n({showClose:!0,message:"Centered text",center:!0})};return(u,e)=>{const o=s("se-button");return p(),a(o,{plain:"",onClick:t},{default:c(()=>e[0]||(e[0]=[m("Centered text")])),_:1})}}});export{d as default};
