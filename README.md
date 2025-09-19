@@ -69,7 +69,7 @@ export default {
 
 ## 文档
 
-更多使用说明和组件示例，请访问 [详细文档](seaeam.github.io/se-element/)。
+更多使用说明和组件示例，请访问 [详细文档]((https://seaeam.github.io/se-element/))。
 
 ## 贡献
 
